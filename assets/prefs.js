@@ -3,7 +3,7 @@
  * All tools live on chaseyuu.github.io, so path=/ cookies are shared between them.
  *
  *   lspd_theme       "dark" | "light"
- *   lspd_characters  JSON: { active: 0 | 1, list: [{ name, rank, badge, division }, ...] }  (max 2)
+ *   lspd_characters  JSON: { active: 0 | 1, list: [{ name, rank, badge, division, assignment }, ...] }  (max 2)
  */
 (function () {
   var YEAR = 60 * 60 * 24 * 365;
@@ -37,10 +37,11 @@
       rank: String(c.rank || ''),
       badge: String(c.badge || '').trim(),
       division: String(c.division || ''),
+      assignment: String(c.assignment || ''),
     };
   }
   function isFilled(c) {
-    return !!(c && (c.name || c.rank || c.badge || c.division));
+    return !!(c && (c.name || c.rank || c.badge || c.division || c.assignment));
   }
 
   function getCharacters() {
