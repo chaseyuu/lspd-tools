@@ -93,6 +93,10 @@ main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; paddin
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
+.tools.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .tools.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.section-title { margin: 32px 0 16px; font-size: 1.375rem; font-weight: 700; }
+.tool-icon[style*="--icon"] { color: var(--icon); }
 .tool {
   position: relative;
   display: flex; flex-direction: column; justify-content: space-between;
@@ -207,7 +211,7 @@ html[data-theme="light"] .select-list { background: #fff; box-shadow: 0 10px 24p
 @media (max-width: 720px) {
   .app-header-inner, main { padding-left: 16px; padding-right: 16px; }
   main { padding-top: 24px; }
-  .tools, .field-grid { grid-template-columns: 1fr; }
+  .tools, .tools.cols-3, .field-grid { grid-template-columns: 1fr; }
   .tool { min-height: 150px; }
 }
 
