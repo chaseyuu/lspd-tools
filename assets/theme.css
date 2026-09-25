@@ -115,6 +115,8 @@ main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; paddin
   outline: none;
 }
 .tool-icon { color: var(--primary); }
+/* Tiles without a description don't keep an empty lower half. */
+.tool:not(:has(.tool-desc)) { min-height: 0; }
 /* Title starts at the same height on every tile, whatever the description length. */
 .tool > span:not(.tool-icon) { margin-top: 34px; }
 .tool-icon svg { width: 30px; height: 30px; }

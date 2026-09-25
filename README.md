@@ -11,7 +11,7 @@ ulaşmayı sağlar ve hepsi aynı temayı kullanır.
 |---|---|---|
 | Tutuklama Hesaplayıcı | https://chaseyuu.github.io/arrest-calculator/ | [arrest-calculator](https://github.com/chaseyuu/arrest-calculator) |
 | Kartvizit Oluşturucu | https://chaseyuu.github.io/kartvizit-olusturucu/ | [kartvizit-olusturucu](https://github.com/chaseyuu/kartvizit-olusturucu) |
-| Evrak Oluşturucu | https://chaseyuu.github.io/lspd-paperwork-generator/ | [lspd-paperwork-generator](https://github.com/chaseyuu/lspd-paperwork-generator) |
+| Rapor Oluşturucu | https://chaseyuu.github.io/lspd-paperwork-generator/ | [lspd-paperwork-generator](https://github.com/chaseyuu/lspd-paperwork-generator) |
 
 Araçların üst çubuğundaki **LSPD Tools** yazısı bu ana sayfaya gider. Sağ üstte seçili karakterin adı yazar;
 üzerine tıklanınca diğer karaktere geçilebilir ya da **Karakterleri Düzenle** ile ayarlar sayfası açılır.
