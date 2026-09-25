@@ -12,15 +12,18 @@ ulaşmayı sağlar ve hepsi aynı temayı kullanır.
 | Tutuklama Hesaplayıcı | https://chaseyuu.github.io/arrest-calculator/ | [arrest-calculator](https://github.com/chaseyuu/arrest-calculator) |
 | Kartvizit Oluşturucu | https://chaseyuu.github.io/kartvizit-olusturucu/ | [kartvizit-olusturucu](https://github.com/chaseyuu/kartvizit-olusturucu) |
 
-Araçların üst çubuğundaki **LSPD Tools** yazısı bu ana sayfaya, dişli simgesi ise ayarlar sayfasına gider.
+Araçların üst çubuğundaki **LSPD Tools** yazısı bu ana sayfaya gider. Sağ üstte seçili karakterin adı yazar;
+üzerine tıklanınca diğer karaktere geçilebilir ya da **Karakterleri Düzenle** ile ayarlar sayfası açılır.
+Henüz karakter tanımlanmamışsa bu alanda **Karakter Tanımla** bağlantısı görünür.
 
 ## Ayarlar
 
 Ayarlar sayfası (`settings/`, https://chaseyuu.github.io/lspd-tools/settings/) şunları saklar:
 
 - **Görünüm:** Koyu ya da açık tema. Ana sayfa, ayarlar ve Tutuklama Hesaplayıcı bu seçimi kullanır.
-- **Personel Bilgisi:** Ad Soyadı, Rütbe (Officer, Detective, Sergeant, Lieutenant, Captain), Seri No. ve
-  Division (MISN, MISN B, CTD, METRO, ASD, VES).
+- **Personel Bilgisi:** En fazla iki karakter (**Ana Karakter** ve **Alt Karakter**). Her biri için Ad Soyadı,
+  Rütbe (Officer, Detective, Sergeant, Lieutenant, Captain), Seri No. ve Division (MISN, MISN B, CTD, METRO, ASD, VES)
+  girilir. Araçlar sağ üstten seçilen karakterin bilgilerini kullanır.
 
 Bilgiler yalnızca kullanıcının tarayıcı çerezlerinde, bir yıl süreyle tutulur; hiçbir sunucuya gönderilmez.
 Bütün araçlar `chaseyuu.github.io` altında olduğu için çerezleri ortak kullanabilirler:
@@ -28,9 +31,10 @@ Bütün araçlar `chaseyuu.github.io` altında olduğu için çerezleri ortak ku
 | Çerez | İçerik |
 |---|---|
 | `lspd_theme` | `dark` ya da `light` |
-| `lspd_personnel` | `{ name, rank, badge, division }` (JSON) |
+| `lspd_characters` | `{ active: 0 ya da 1, list: [{ name, rank, badge, division }, ...] }` (JSON, en fazla 2 karakter) |
 
-Çerez okuma ve yazma işlemleri `assets/prefs.js` dosyasındadır.
+Çerez okuma ve yazma işlemleri `assets/prefs.js`, sağ üstteki karakter seçici ise `assets/character-switcher.js`
+dosyasındadır. Eski `lspd_personnel` çerezi varsa otomatik olarak Ana Karakter'e taşınır.
 
 ## Yeni araç ekleme
 
