@@ -93,6 +93,7 @@ main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; paddin
 .tools.cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 @media (max-width: 1100px) { .tools.cols-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .section-title { margin: 32px 0 16px; font-size: 1.375rem; font-weight: 700; }
+.section-divider { margin: 32px 0 0; border: none; border-top: 1px solid var(--border); }
 .tool-icon[style*="--icon"] { color: var(--icon); }
 .tool {
   position: relative;
