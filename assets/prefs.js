@@ -88,4 +88,17 @@
 
   // Apply the saved theme before the page paints.
   applyTheme(getTheme());
+
+  // Pages are designed at 1920px wide; on wider screens (e.g. 2560x1440) scale everything
+  // proportionally so the layout looks the same on every monitor.
+  (function () {
+    var BASE = 1920;
+    function fit() {
+      var z = Math.max(1, window.innerWidth / BASE);
+      document.documentElement.style.zoom = z > 1 ? String(z) : '';
+      document.documentElement.style.setProperty('--page-zoom', String(z));
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  })();
 })();
