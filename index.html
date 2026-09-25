@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LSPD Tools</title>
+  <meta name="description" content="LSPD Tools: Tutuklama Hesaplayıcı ve Kartvizit Oluşturucu.">
+  <link rel="icon" href="img/lspd.webp" type="image/webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <style>
+    /* LSPD Tools shared theme (same tokens as the calculator and the business card maker) */
+    :root {
+      --background: hsl(213 14% 20%);
+      --foreground: hsl(210 20% 97%);
+      --card: hsl(215 22% 13%);
+      --muted: hsl(214 18% 18%);
+      --muted-foreground: hsl(210 14% 70%);
+      --border: hsl(214 16% 26%);
+      --primary: hsl(205 62% 55%);
+      --header: hsl(216 26% 9%);
+      --radius-card: 6px;
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background: var(--background);
+      color: var(--foreground);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app-header {
+      position: sticky; top: 0; z-index: 40;
+      background: var(--header); color: #fff;
+      border-bottom: 4px solid var(--primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .35);
+      padding-top: env(safe-area-inset-top, 0px);
+    }
+    .app-header-inner {
+      max-width: 1400px; margin: 0 auto; height: 64px;
+      display: flex; align-items: center; gap: 12px; padding: 0 32px;
+    }
+    .app-header a { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+    .app-header img { height: 44px; width: auto; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .5)); }
+    .app-header span { font-size: 18px; font-weight: 600; }
+
+    main { max-width: 1400px; margin: 0 auto; padding: 32px; }
+    .page-title {
+      margin: 0 0 24px; padding-left: 16px;
+      border-left: 4px solid var(--primary);
+      font-size: 1.875rem; font-weight: 700; letter-spacing: -.01em;
+    }
+
+    .tools {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .tool {
+      display: flex; align-items: center; gap: 20px;
+      min-height: 140px; padding: 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--primary);
+      border-radius: var(--radius-card);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+      color: var(--foreground); text-decoration: none;
+      transition: transform .15s ease, border-color .15s ease, background-color .15s ease;
+    }
+    .tool:hover, .tool:focus-visible {
+      background: hsl(215 22% 16%);
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      outline: none;
+    }
+    .tool-icon {
+      flex: none; width: 64px; height: 64px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: var(--radius-card);
+      background: hsl(205 62% 55% / .15);
+      color: var(--primary);
+    }
+    .tool-icon svg { width: 32px; height: 32px; }
+    .tool-name { font-size: 1.25rem; font-weight: 600; }
+    .tool-arrow { margin-left: auto; color: var(--muted-foreground); transition: color .15s, transform .15s; }
+    .tool:hover .tool-arrow { color: var(--primary); transform: translateX(3px); }
+
+    @media (max-width: 640px) {
+      .app-header-inner, main { padding-left: 16px; padding-right: 16px; }
+      main { padding-top: 24px; }
+      .tools { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header">
+    <div class="app-header-inner">
+      <a href="./">
+        <img src="img/lspd.webp" alt="LSPD" width="46" height="44">
+        <span>LSPD Tools</span>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <h1 class="page-title">LSPD Tools</h1>
+
+    <nav class="tools" aria-label="Araçlar">
+      <a class="tool" href="https://chaseyuu.github.io/arrest-calculator/">
+        <span class="tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/>
+            <line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/>
+            <path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/>
+          </svg>
+        </span>
+        <span class="tool-name">Tutuklama Hesaplayıcı</span>
+        <svg class="tool-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+
+      <a class="tool" href="https://chaseyuu.github.io/kartvizit-olusturucu/">
+        <span class="tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="5" width="20" height="14" rx="2"/><circle cx="8" cy="12" r="2.5"/>
+            <path d="M13 10h5"/><path d="M13 14h3"/>
+          </svg>
+        </span>
+        <span class="tool-name">Kartvizit Oluşturucu</span>
+        <svg class="tool-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>
