@@ -79,10 +79,23 @@ main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; paddin
 .page-title + .tools { margin-top: 24px; }
 .intro { margin: -4px 0 24px; font-size: .95rem; color: var(--muted-foreground); }
 
-/* Faint badge watermark behind the page (disabled) */
+/* Faint seal watermark behind the page */
 .watermark {
-  display: none;
+  position: fixed; left: 50%; top: 55%; z-index: 0;
+  width: min(560px, 80vw); transform: translate(-50%, -50%);
+  opacity: var(--watermark-opacity); pointer-events: none; user-select: none;
 }
+
+/* Simple centered PIN dialog for protected report cards */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0, 0, 0, .6); padding: 20px;
+}
+.modal-overlay[hidden] { display: none; }
+.modal-box { width: 100%; max-width: 360px; margin: 0; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 16px; }
+.modal-error { margin: 10px 0 0; font-size: .8125rem; color: hsl(0 75% 65%); min-height: 1.2em; }
 
 /* Tool tiles (dashboard) */
 .tools {
