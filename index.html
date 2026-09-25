@@ -50,50 +50,55 @@
 
     main { max-width: 1400px; margin: 0 auto; padding: 28px 32px; }
     .page-title {
-      margin: 0 0 16px; padding-left: 10px;
+      margin: 0 0 16px; padding-left: 12px;
       border-left: 3px solid var(--primary);
-      font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em;
+      font-size: 1.75rem; font-weight: 600; letter-spacing: -.01em;
     }
 
-    .intro { margin: -6px 0 18px; font-size: .875rem; color: var(--muted-foreground); }
+    .intro { margin: -4px 0 24px; font-size: .95rem; color: var(--muted-foreground); }
     .tools {
       display: grid;
-      grid-template-columns: repeat(auto-fill, 270px);
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      max-width: 1100px;
     }
     .tool {
-      display: flex; align-items: center; gap: 12px;
-      padding: 12px 14px;
-      background: var(--card);
+      position: relative;
+      display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 176px; padding: 22px 24px;
+      background: hsl(215 22% 13% / .92);
       border: 1px solid var(--border);
-      border-top: 3px solid var(--primary);
-      border-radius: var(--radius-card);
-      box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+      border-radius: 10px;
       color: var(--foreground); text-decoration: none;
-      transition: transform .15s ease, border-color .15s ease, background-color .15s ease;
+      transition: border-color .15s ease, background-color .15s ease, transform .15s ease;
+      backdrop-filter: blur(2px);
     }
     .tool:hover, .tool:focus-visible {
-      background: hsl(215 22% 16%);
-      border-color: var(--primary);
-      transform: translateY(-1px);
+      border-color: hsl(205 62% 55% / .7);
+      background: hsl(215 22% 15% / .95);
+      transform: translateY(-2px);
       outline: none;
     }
-    .tool-icon {
-      flex: none; width: 34px; height: 34px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: var(--radius-card);
-      background: hsl(205 62% 55% / .15);
-      color: var(--primary);
-    }
-    .tool-icon svg { width: 18px; height: 18px; }
-    .tool-name { font-size: .875rem; font-weight: 500; white-space: nowrap; }
-    .tool-arrow { margin-left: auto; color: var(--muted-foreground); transition: color .15s, transform .15s; }
+    .tool-icon { color: var(--primary); }
+    .tool-icon svg { width: 30px; height: 30px; }
+    .tool-arrow { position: absolute; top: 24px; right: 24px; color: var(--muted-foreground); transition: color .15s, transform .15s; }
     .tool:hover .tool-arrow { color: var(--primary); transform: translateX(3px); }
+    .tool-name { display: block; font-size: 1.125rem; font-weight: 600; }
+    .tool-desc { display: block; margin-top: 6px; font-size: .875rem; color: var(--muted-foreground); }
+
+    /* Faint badge watermark behind the page, like the MDC panel */
+    .watermark {
+      position: fixed; left: 50%; top: 55%; z-index: 0;
+      width: min(560px, 80vw); transform: translate(-50%, -50%);
+      opacity: .05; pointer-events: none; user-select: none;
+    }
+    main { position: relative; z-index: 1; }
 
     @media (max-width: 640px) {
       .app-header-inner, main { padding-left: 16px; padding-right: 16px; }
       main { padding-top: 24px; }
       .tools { grid-template-columns: 1fr; }
+      .tool { min-height: 150px; }
     }
   </style>
 </head>
@@ -106,6 +111,8 @@
       </a>
     </div>
   </header>
+
+  <img class="watermark" src="img/lspd.webp" alt="" aria-hidden="true">
 
   <main>
     <h1 class="page-title">Navigasyon</h1>
@@ -120,8 +127,11 @@
             <path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/>
           </svg>
         </span>
-        <span class="tool-name">Tutuklama Hesaplayıcı</span>
-        <svg class="tool-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <span>
+          <span class="tool-name">Tutuklama Hesaplayıcı</span>
+          <span class="tool-desc">Suçlamalara göre ceza süresini, suç puanını ve kefaleti hesapla.</span>
+        </span>
+        <svg class="tool-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
 
       <a class="tool" href="https://chaseyuu.github.io/kartvizit-olusturucu/">
@@ -131,8 +141,11 @@
             <path d="M13 10h5"/><path d="M13 14h3"/>
           </svg>
         </span>
-        <span class="tool-name">Kartvizit Oluşturucu</span>
-        <svg class="tool-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <span>
+          <span class="tool-name">Kartvizit Oluşturucu</span>
+          <span class="tool-desc">Division'a göre kişisel LSPD kartviziti oluştur ve indir.</span>
+        </span>
+        <svg class="tool-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </nav>
   </main>
