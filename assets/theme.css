@@ -99,7 +99,7 @@ main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; paddin
 .tool-icon[style*="--icon"] { color: var(--icon); }
 .tool {
   position: relative;
-  display: flex; flex-direction: column; justify-content: space-between;
+  display: flex; flex-direction: column; justify-content: flex-start;
   min-height: 176px; padding: 22px 24px;
   background: var(--card);
   border: 1px solid var(--border);
@@ -115,6 +115,8 @@ main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; paddin
   outline: none;
 }
 .tool-icon { color: var(--primary); }
+/* Title starts at the same height on every tile, whatever the description length. */
+.tool > span:not(.tool-icon) { margin-top: 34px; }
 .tool-icon svg { width: 30px; height: 30px; }
 .tool-arrow { position: absolute; top: 24px; right: 24px; color: var(--muted-foreground); transition: color .15s, transform .15s; }
 .tool:hover .tool-arrow { color: var(--primary); transform: translateX(3px); }
