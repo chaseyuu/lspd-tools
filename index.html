@@ -48,44 +48,44 @@
     .app-header img { height: 44px; width: auto; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .5)); }
     .app-header span { font-size: 18px; font-weight: 600; }
 
-    main { max-width: 1400px; margin: 0 auto; padding: 32px; }
+    main { max-width: 1400px; margin: 0 auto; padding: 28px 32px; }
     .page-title {
-      margin: 0 0 24px; padding-left: 16px;
-      border-left: 4px solid var(--primary);
-      font-size: 1.875rem; font-weight: 700; letter-spacing: -.01em;
+      margin: 0 0 16px; padding-left: 10px;
+      border-left: 3px solid var(--primary);
+      font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em;
     }
 
     .tools {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 24px;
+      grid-template-columns: repeat(auto-fill, 270px);
+      gap: 12px;
     }
     .tool {
-      display: flex; align-items: center; gap: 20px;
-      min-height: 140px; padding: 24px;
+      display: flex; align-items: center; gap: 12px;
+      padding: 12px 14px;
       background: var(--card);
       border: 1px solid var(--border);
-      border-top: 4px solid var(--primary);
+      border-top: 3px solid var(--primary);
       border-radius: var(--radius-card);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .3);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
       color: var(--foreground); text-decoration: none;
       transition: transform .15s ease, border-color .15s ease, background-color .15s ease;
     }
     .tool:hover, .tool:focus-visible {
       background: hsl(215 22% 16%);
       border-color: var(--primary);
-      transform: translateY(-2px);
+      transform: translateY(-1px);
       outline: none;
     }
     .tool-icon {
-      flex: none; width: 64px; height: 64px;
+      flex: none; width: 34px; height: 34px;
       display: flex; align-items: center; justify-content: center;
       border-radius: var(--radius-card);
       background: hsl(205 62% 55% / .15);
       color: var(--primary);
     }
-    .tool-icon svg { width: 32px; height: 32px; }
-    .tool-name { font-size: 1.25rem; font-weight: 600; }
+    .tool-icon svg { width: 18px; height: 18px; }
+    .tool-name { font-size: .875rem; font-weight: 500; white-space: nowrap; }
     .tool-arrow { margin-left: auto; color: var(--muted-foreground); transition: color .15s, transform .15s; }
     .tool:hover .tool-arrow { color: var(--primary); transform: translateX(3px); }
 
@@ -107,7 +107,7 @@
   </header>
 
   <main>
-    <h1 class="page-title">LSPD Tools</h1>
+    <h1 class="page-title">Dashboard</h1>
 
     <nav class="tools" aria-label="Araçlar">
       <a class="tool" href="https://chaseyuu.github.io/arrest-calculator/">
@@ -119,7 +119,7 @@
           </svg>
         </span>
         <span class="tool-name">Tutuklama Hesaplayıcı</span>
-        <svg class="tool-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg class="tool-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
 
       <a class="tool" href="https://chaseyuu.github.io/kartvizit-olusturucu/">
@@ -130,7 +130,7 @@
           </svg>
         </span>
         <span class="tool-name">Kartvizit Oluşturucu</span>
-        <svg class="tool-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg class="tool-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
     </nav>
   </main>
