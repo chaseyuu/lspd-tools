@@ -36,8 +36,6 @@ html[data-theme="light"] {
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-/* Always reserve the scrollbar space so the header sits in the same place on every page. */
-html { scrollbar-gutter: stable; }
 body {
   margin: 0;
   min-height: calc(100vh / var(--page-zoom, 1));
@@ -54,12 +52,6 @@ body {
   border-bottom: 4px solid var(--primary);
   box-shadow: 0 4px 12px rgba(0, 0, 0, .35);
   padding-top: env(safe-area-inset-top, 0px);
-  /* scrollbar-gutter: stable (above) always reserves a strip on the right so the header doesn't
-     shift between pages with/without a scrollbar; without this, that strip shows the page
-     background instead of the header, leaving a visible gap on every page/resolution. 100vw
-     includes that reserved strip while 100% (the header's own box) does not, so the difference
-     is exactly its width — pull the header's right edge out by that amount to cover it. */
-  margin-right: calc(-1 * var(--scrollbar-gutter, 15px) / var(--page-zoom, 1));
 }
 .app-header-inner {
   height: 64px;

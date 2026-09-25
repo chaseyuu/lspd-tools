@@ -94,24 +94,6 @@
   (function () {
     var BASE = 1920;
 
-    // scrollbar-gutter: stable (theme.css) reserves this much space on the right on every page,
-    // so the header would otherwise show a blank strip there instead of its background. Measure
-    // it directly (viewport width minus <html>'s actual rendered box, which is narrowed by that
-    // reservation — clientWidth doesn't reflect it, by spec, so it can't be used here) so the
-    // header can cover exactly that much. CSS zoom re-scales the header's own margin, so theme.css
-    // divides by the current zoom factor to cancel that back out. This script runs synchronously
-    // in <head> (so theme/zoom apply before first paint, avoiding a flash), but <html> isn't
-    // measurable yet at that point — there's no content to lay it out against — so the gutter
-    // itself is measured on DOMContentLoaded instead, once <body> exists.
-    function measureGutter() {
-      var w = 0;
-      try {
-        w = Math.max(0, window.innerWidth - document.documentElement.getBoundingClientRect().width);
-      } catch (e) {}
-      document.documentElement.style.setProperty('--scrollbar-gutter', w + 'px');
-    }
-    document.addEventListener('DOMContentLoaded', measureGutter);
-
     function fit() {
       var z = Math.max(1, window.innerWidth / BASE);
       document.documentElement.style.zoom = z > 1 ? String(z) : '';
