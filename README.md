@@ -12,12 +12,30 @@ ulaşmayı sağlar ve hepsi aynı temayı kullanır.
 | Tutuklama Hesaplayıcı | https://chaseyuu.github.io/arrest-calculator/ | [arrest-calculator](https://github.com/chaseyuu/arrest-calculator) |
 | Kartvizit Oluşturucu | https://chaseyuu.github.io/kartvizit-olusturucu/ | [kartvizit-olusturucu](https://github.com/chaseyuu/kartvizit-olusturucu) |
 
-Araçların üst çubuğundaki **LSPD Tools** yazısı bu ana sayfaya döner.
+Araçların üst çubuğundaki **LSPD Tools** yazısı bu ana sayfaya, dişli simgesi ise ayarlar sayfasına gider.
+
+## Ayarlar
+
+Ayarlar sayfası (`settings/`, https://chaseyuu.github.io/lspd-tools/settings/) şunları saklar:
+
+- **Görünüm:** Koyu ya da açık tema. Ana sayfa, ayarlar ve Tutuklama Hesaplayıcı bu seçimi kullanır.
+- **Personel Bilgisi:** Ad Soyadı, Rütbe (Officer, Detective, Sergeant, Lieutenant, Captain), Seri No. ve
+  Division (MISN, MISN B, CTD, METRO, ASD, VES).
+
+Bilgiler yalnızca kullanıcının tarayıcı çerezlerinde, bir yıl süreyle tutulur; hiçbir sunucuya gönderilmez.
+Bütün araçlar `chaseyuu.github.io` altında olduğu için çerezleri ortak kullanabilirler:
+
+| Çerez | İçerik |
+|---|---|
+| `lspd_theme` | `dark` ya da `light` |
+| `lspd_personnel` | `{ name, rank, badge, division }` (JSON) |
+
+Çerez okuma ve yazma işlemleri `assets/prefs.js` dosyasındadır.
 
 ## Yeni araç ekleme
 
 `index.html` içindeki `.tools` bölümüne yeni bir `<a class="tool">` kartı ekleyin ve `href` değerine aracın
-adresini yazın.
+adresini yazın. Ortak stiller `assets/theme.css` dosyasındadır.
 
 ## Tema
 
@@ -30,9 +48,9 @@ Bütün araçlar aynı renkleri ve kutu tasarımını kullanır:
 | Kutular | `hsl(215 22% 13%)` |
 | Vurgu (çelik mavisi) | `hsl(205 62% 55%)` |
 
-Kutuların üst kenarında 4 piksellik çelik mavisi şerit bulunur. Yazı tipi olarak Inter kullanılır.
+Kutuların üst kenarında 4 piksellik çelik mavisi şerit bulunur. Yazı tipi olarak Segoe UI (yoksa Open Sans) kullanılır.
 
 ## Yayınlama
 
-Site tek bir `index.html` dosyasından oluşur ve derleme gerektirmez. Depo ayarlarında
+Site statik HTML, CSS ve JavaScript dosyalarından oluşur ve derleme gerektirmez. Depo ayarlarında
 **Settings → Pages → Source** değeri **Deploy from a branch**, dal olarak da `main` / `(root)` seçili olmalıdır.

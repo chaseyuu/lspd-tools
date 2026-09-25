@@ -1,113 +1,26 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>LSPD Tools</title>
   <meta name="description" content="LSPD Tools: Tutuklama Hesaplayıcı ve Kartvizit Oluşturucu.">
   <link rel="icon" href="img/lspd.webp" type="image/webp">
+  <script src="assets/prefs.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap">
-  <style>
-    /* LSPD Tools shared theme (same tokens as the calculator and the business card maker) */
-    :root {
-      --background: hsl(213 14% 20%);
-      --foreground: hsl(210 20% 97%);
-      --card: hsl(215 22% 13%);
-      --muted: hsl(214 18% 18%);
-      --muted-foreground: hsl(210 14% 70%);
-      --border: hsl(214 16% 26%);
-      --primary: hsl(205 62% 55%);
-      --header: hsl(216 26% 9%);
-      --radius-card: 6px;
-      color-scheme: dark;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: 'Segoe UI', 'Open Sans', system-ui, -apple-system, sans-serif;
-      background: var(--background);
-      color: var(--foreground);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .app-header {
-      position: sticky; top: 0; z-index: 40;
-      background: var(--header); color: #fff;
-      border-bottom: 4px solid var(--primary);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, .35);
-      padding-top: env(safe-area-inset-top, 0px);
-    }
-    .app-header-inner {
-      max-width: 1400px; margin: 0 auto; height: 64px;
-      display: flex; align-items: center; gap: 12px; padding: 0 32px;
-    }
-    .app-header a { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
-    .app-header img { height: 44px; width: auto; filter: drop-shadow(0 1px 2px rgba(0, 0, 0, .5)); }
-    .app-header span { font-size: 18px; font-weight: 600; }
-
-    main { max-width: 1400px; margin: 0 auto; padding: 28px 32px; }
-    .page-title {
-      margin: 0 0 16px; padding-left: 12px;
-      border-left: 3px solid var(--primary);
-      font-size: 1.75rem; font-weight: 600; letter-spacing: -.01em;
-    }
-
-    .intro { margin: -4px 0 24px; font-size: .95rem; color: var(--muted-foreground); }
-    .tools {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-    }
-    .tool {
-      position: relative;
-      display: flex; flex-direction: column; justify-content: space-between;
-      min-height: 176px; padding: 22px 24px;
-      background: hsl(215 22% 13% / .92);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--foreground); text-decoration: none;
-      transition: border-color .15s ease, background-color .15s ease, transform .15s ease;
-      backdrop-filter: blur(2px);
-    }
-    .tool:hover, .tool:focus-visible {
-      border-color: hsl(205 62% 55% / .7);
-      background: hsl(215 22% 15% / .95);
-      transform: translateY(-2px);
-      outline: none;
-    }
-    .tool-icon { color: var(--primary); }
-    .tool-icon svg { width: 30px; height: 30px; }
-    .tool-arrow { position: absolute; top: 24px; right: 24px; color: var(--muted-foreground); transition: color .15s, transform .15s; }
-    .tool:hover .tool-arrow { color: var(--primary); transform: translateX(3px); }
-    .tool-name { display: block; font-size: 1.125rem; font-weight: 600; }
-    .tool-desc { display: block; margin-top: 6px; font-size: .875rem; color: var(--muted-foreground); }
-
-    /* Faint badge watermark behind the page, like the MDC panel */
-    .watermark {
-      position: fixed; left: 50%; top: 55%; z-index: 0;
-      width: min(560px, 80vw); transform: translate(-50%, -50%);
-      opacity: .05; pointer-events: none; user-select: none;
-    }
-    main { position: relative; z-index: 1; }
-
-    @media (max-width: 640px) {
-      .app-header-inner, main { padding-left: 16px; padding-right: 16px; }
-      main { padding-top: 24px; }
-      .tools { grid-template-columns: 1fr; }
-      .tool { min-height: 150px; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/theme.css">
 </head>
 <body>
   <header class="app-header">
     <div class="app-header-inner">
-      <a href="./">
+      <a class="brand" href="./">
         <img src="img/lspd.webp" alt="LSPD" width="46" height="44">
         <span>LSPD Tools</span>
+      </a>
+      <a class="header-link" href="settings/" title="Ayarlar" aria-label="Ayarlar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
       </a>
     </div>
   </header>
@@ -144,6 +57,17 @@
         <span>
           <span class="tool-name">Kartvizit Oluşturucu</span>
           <span class="tool-desc">Herhangi bir uygulamaya ihtiyaç duymadan hızlıca kartvizitini oluştur.</span>
+        </span>
+        <svg class="tool-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+
+      <a class="tool" href="settings/">
+        <span class="tool-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+        </span>
+        <span>
+          <span class="tool-name">Ayarlar</span>
+          <span class="tool-desc">Tema tercihini ve personel bilgilerini tanımla. Bilgiler yalnızca tarayıcında saklanır.</span>
         </span>
         <svg class="tool-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </a>
