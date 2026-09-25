@@ -78,6 +78,7 @@ main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; paddin
   border-left: 3px solid var(--primary);
   font-size: 1.75rem; font-weight: 700; letter-spacing: -.01em;
 }
+.page-title + .tools { margin-top: 24px; }
 .intro { margin: -4px 0 24px; font-size: .95rem; color: var(--muted-foreground); }
 
 /* Faint badge watermark behind the page */
