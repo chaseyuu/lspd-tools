@@ -79,11 +79,9 @@ main { position: relative; z-index: 1; max-width: 1400px; margin: 0 auto; paddin
 .page-title + .tools { margin-top: 24px; }
 .intro { margin: -4px 0 24px; font-size: .95rem; color: var(--muted-foreground); }
 
-/* Faint badge watermark behind the page */
+/* Faint badge watermark behind the page (disabled) */
 .watermark {
-  position: fixed; left: 50%; top: 55%; z-index: 0;
-  width: min(560px, 80vw); transform: translate(-50%, -50%);
-  opacity: var(--watermark-opacity); pointer-events: none; user-select: none;
+  display: none;
 }
 
 /* Tool tiles (dashboard) */
