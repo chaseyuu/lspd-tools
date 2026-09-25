@@ -36,6 +36,8 @@ html[data-theme="light"] {
 }
 
 *, *::before, *::after { box-sizing: border-box; }
+/* Always reserve the scrollbar space so the header sits in the same place on every page. */
+html { scrollbar-gutter: stable; }
 body {
   margin: 0;
   min-height: calc(100vh / var(--page-zoom, 1));
