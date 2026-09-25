@@ -54,6 +54,12 @@ body {
   border-bottom: 4px solid var(--primary);
   box-shadow: 0 4px 12px rgba(0, 0, 0, .35);
   padding-top: env(safe-area-inset-top, 0px);
+  /* scrollbar-gutter: stable (above) always reserves a strip on the right so the header doesn't
+     shift between pages with/without a scrollbar; without this, that strip shows the page
+     background instead of the header, leaving a visible gap on every page/resolution. 100vw
+     includes that reserved strip while 100% (the header's own box) does not, so the difference
+     is exactly its width — pull the header's right edge out by that amount to cover it. */
+  margin-right: calc(-1 * var(--scrollbar-gutter, 15px) / var(--page-zoom, 1));
 }
 .app-header-inner {
   max-width: 1400px; margin: 0 auto; height: 64px;
