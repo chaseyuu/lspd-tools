@@ -62,7 +62,7 @@ body {
   margin-right: calc(-1 * var(--scrollbar-gutter, 15px) / var(--page-zoom, 1));
 }
 .app-header-inner {
-  max-width: 1400px; margin: 0 auto; height: 64px;
+  height: 64px;
   display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 32px;
 }
 .app-header .brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
