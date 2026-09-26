@@ -219,6 +219,8 @@ html[data-theme="light"] .select-list { background: #fff; box-shadow: 0 10px 24p
 .btn-primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }
 .btn-danger { background: transparent; border-color: hsl(0 60% 45%); color: hsl(0 75% 62%); }
 .btn-danger:hover { background: hsl(0 60% 45% / .12); }
+.btn-success { background: var(--success); border-color: var(--success); color: #fff; }
+.btn-success:hover { background: hsl(142 60% 39%); border-color: hsl(142 60% 39%); }
 .status { font-size: .8125rem; color: var(--success); opacity: 0; transition: opacity .2s; }
 .status.show { opacity: 1; }
 .note { margin-top: 16px; font-size: .8125rem; color: var(--muted-foreground); }
